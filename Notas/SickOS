@@ -116,4 +116,17 @@ Connection: close
 intentar: por ssh con ssh www-data@192.168.22.134 '() { :;}; date'' quitando el proxy
 
 
+############## RECURSOS ##############
+
+
+https://highon.coffee/blog/sickos-1-walkthrough/
+https://linux.die.net/man/1/nc
+http://resources.infosecinstitute.com/practical-shellshock-exploitation-part-2/#gref
+https://ipaudita.wordpress.com/2013/02/13/top-30-de-nmap-ejemplos-de-comandos-para-sys-red-admins/
+http://resources.infosecinstitute.com/practical-shellshock-exploitation-part-1/#gref
+
+https://www.digitalocean.com/community/tutorials/how-to-route-web-traffic-securely-without-a-vpn-using-a-socks-tunnel
+https://en.wikipedia.org/wiki/List_of_network_protocols_(OSI_model)
+https://www.best-bittorrent-vpn.com/socks-vs-http-proxy-for-torrents.html
+
 
