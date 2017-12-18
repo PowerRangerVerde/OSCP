@@ -1,0 +1,34 @@
+root@prometeus:~# nmap -sU -p 666 -sV -O 192.168.18.128 
+
+Starting Nmap 7.25BETA1 ( https://nmap.org ) at 2017-12-18 14:22 CET
+Nmap scan report for 192.168.18.128
+Host is up (0.00020s latency).
+PORT    STATE SERVICE VERSION
+666/udp open  doom?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port666-UDP:V=7.25BETA1%I=7%D=12/18%Time=5A37C146%P=x86_64-pc-linux-gnu
+SF:%r(RPCCheck,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20
+SF:out!\n")%r(DNSVersionBindReq,27,"You\x20gasp\x20for\x20air!\x20Time\x20
+SF:is\x20running\x20out!\n")%r(DNSStatusRequest,27,"You\x20gasp\x20for\x20
+SF:air!\x20Time\x20is\x20running\x20out!\n")%r(NBTStat,27,"You\x20gasp\x20
+SF:for\x20air!\x20Time\x20is\x20running\x20out!\n")%r(Help,27,"You\x20gasp
+SF:\x20for\x20air!\x20Time\x20is\x20running\x20out!\n")%r(SIPOptions,27,"Y
+SF:ou\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20out!\n")%r(Sqlpin
+SF:g,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20out!\n")%r
+SF:(NTPRequest,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20
+SF:out!\n")%r(SNMPv1public,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x2
+SF:0running\x20out!\n")%r(SNMPv3GetRequest,27,"You\x20gasp\x20for\x20air!\
+SF:x20Time\x20is\x20running\x20out!\n")%r(xdmcp,27,"You\x20gasp\x20for\x20
+SF:air!\x20Time\x20is\x20running\x20out!\n")%r(AFSVersionRequest,27,"You\x
+SF:20gasp\x20for\x20air!\x20Time\x20is\x20running\x20out!\n")%r(DNS-SD,27,
+SF:"You\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20out!\n")%r(Citr
+SF:ix,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20out!\n")%
+SF:r(Kerberos,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x20running\x20o
+SF:ut!\n")%r(sybaseanywhere,27,"You\x20gasp\x20for\x20air!\x20Time\x20is\x
+SF:20running\x20out!\n");
+MAC Address: 00:0C:29:B3:72:86 (VMware)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 104.51 seconds
