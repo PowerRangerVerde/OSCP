@@ -134,8 +134,9 @@ Nmap done: 1 IP address (1 host up) scanned in 16.32 seconds
 
 
 
+a@b:~# wafw00f 192.168.18.128
 
-
+The site http://192.168.18.128 is behind a Imperva SecureSphere
 
 
 
