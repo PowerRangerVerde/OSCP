@@ -103,7 +103,34 @@ Squinting your eyes from the light coming from the object, you can see the forma
 As quickly as the birds appeared, they have left you once again.... alone... tortured by the deafening sound of silence.
 666 is closed.
 
+>> Nota: Otro escaneo
 
+a@b:~# nmap -A 192.168.18.128
+
+Starting Nmap 7.25BETA1 ( https://nmap.org ) at 2017-12-19 12:28 CET
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for 192.168.18.128
+Host is up (0.00041s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    OpenBSD httpd
+|_http-server-header: OpenBSD httpd
+|_http-title: The Chasm
+MAC Address: 00:0C:29:B3:72:86 (VMware)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose|firewall
+Running (JUST GUESSING): OpenBSD 4.X|5.X (95%), IronPort AsyncOS 7.X (85%)
+OS CPE: cpe:/o:openbsd:openbsd:4.0 cpe:/o:openbsd:openbsd:5 cpe:/o:ironport:asyncos:7.5.1
+Aggressive OS guesses: OpenBSD 4.0 (95%), OpenBSD 4.6 (89%), OpenBSD 4.1 - 4.3 (86%), OpenBSD 5.0 - 5.4 (86%), OpenBSD 4.3 (86%), IronPort AsyncOS 7.5.1 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.41 ms 192.168.18.128
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 16.32 seconds
 
 
 
