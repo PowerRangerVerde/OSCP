@@ -138,6 +138,10 @@ a@b:~# wafw00f 192.168.18.128
 
 The site http://192.168.18.128 is behind a Imperva SecureSphere
 
+a@b:~# foremost
+
+flag3{9ad3f62db7b91c28b68137000394639f} - Cross the chasm at /amagicbridgeappearsatthechasm 345465869
+
 
 
 
