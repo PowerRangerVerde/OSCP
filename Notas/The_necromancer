@@ -32,3 +32,87 @@ Network Distance: 1 hop
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 104.51 seconds
+
+>>Nota: Texto limpio:
+
+SF-Port666-UDP:
+V=7.25BETA1%I=7%D=12/18%Time=5A37C146%P=x86_64-pc-linux-gnu
+(RPCCheck,27,"You gasp for air! Time is running out!")
+(DNSVersionBindReq,27,"You gasp for air! Time is running out!")
+(DNSStatusRequest,27,"You gasp for air! Time is running out!")
+(NBTStat,27,"You gasp for air! Time is running out!")
+(Help,27,"You gasp for air! Time is running out!")
+(SIPOptions,27,"You gasp for air! Time is running out!")
+(Sqlping,27,"You gasp for air! Time is running out!")
+(NTPRequest,27,"You gasp for air! Time is running out!")
+(SNMPv1public,27,"You gasp for air! Time is\x20running out!")
+(SNMPv3GetRequest,27,"You gasp for air! Time is running out!")
+(xdmcp,27,"You gasp for air! Time is running out!")
+(AFSVersionRequest,27,"You\x20gasp for air! Time is running out!")
+(DNS-SD,27,"You gasp for air! Time is running out!")
+(Citrix,27,"You gasp for air! Time is running out!")
+(Kerberos,27,"You gasp for air! Time is running out!")
+(sybaseanywhere,27,"You gasp for air! Time is running out!");
+
+>>Nota: Poner a la escucha con netcat en un puerto:
+
+a@b:~# nc -lvp 4444
+
+>>Nota: La máquina al cabo del tiempo consigue captar el siguiente mensaje:
+
+istening on [any] 4444 ...
+192.168.18.128: inverse host lookup failed: Unknown host
+connect to [192.168.18.129] from (UNKNOWN) [192.168.18.128] 24390
+...V2VsY29tZSENCg0KWW91IGZpbmQgeW91cnNlbGYgc3RhcmluZyB0b3dhcmRzIHRoZSBob3Jpem9uLCB3aXRoIG5vdGhpbmcgYnV0IHNpbGVuY2Ugc3Vycm91bmRpbmcgeW91Lg0KWW91IGxvb2sgZWFzdCwgdGhlbiBzb3V0aCwgdGhlbiB3ZXN0LCBhbGwgeW91IGNhbiBzZWUgaXMgYSBncmVhdCB3YXN0ZWxhbmQgb2Ygbm90aGluZ25lc3MuDQoNClR1cm5pbmcgdG8geW91ciBub3J0aCB5b3Ugbm90aWNlIGEgc21hbGwgZmxpY2tlciBvZiBsaWdodCBpbiB0aGUgZGlzdGFuY2UuDQpZb3Ugd2FsayBub3J0aCB0b3dhcmRzIHRoZSBmbGlja2VyIG9mIGxpZ2h0LCBvbmx5IHRvIGJlIHN0b3BwZWQgYnkgc29tZSB0eXBlIG9mIGludmlzaWJsZSBiYXJyaWVyLiAgDQoNClRoZSBhaXIgYXJvdW5kIHlvdSBiZWdpbnMgdG8gZ2V0IHRoaWNrZXIsIGFuZCB5b3VyIGhlYXJ0IGJlZ2lucyB0byBiZWF0IGFnYWluc3QgeW91ciBjaGVzdC4gDQpZb3UgdHVybiB0byB5b3VyIGxlZnQuLiB0aGVuIHRvIHlvdXIgcmlnaHQhICBZb3UgYXJlIHRyYXBwZWQhDQoNCllvdSBmdW1ibGUgdGhyb3VnaCB5b3VyIHBvY2tldHMuLiBub3RoaW5nISAgDQpZb3UgbG9vayBkb3duIGFuZCBzZWUgeW91IGFyZSBzdGFuZGluZyBpbiBzYW5kLiAgDQpEcm9wcGluZyB0byB5b3VyIGtuZWVzIHlvdSBiZWdpbiB0byBkaWcgZnJhbnRpY2FsbHkuDQoNCkFzIHlvdSBkaWcgeW91IG5vdGljZSB0aGUgYmFycmllciBleHRlbmRzIHVuZGVyZ3JvdW5kISAgDQpGcmFudGljYWxseSB5b3Uga2VlcCBkaWdnaW5nIGFuZCBkaWdnaW5nIHVudGlsIHlvdXIgbmFpbHMgc3VkZGVubHkgY2F0Y2ggb24gYW4gb2JqZWN0Lg0KDQpZb3UgZGlnIGZ1cnRoZXIgYW5kIGRpc2NvdmVyIGEgc21hbGwgd29vZGVuIGJveC4gIA0KZmxhZzF7ZTYwNzhiOWIxYWFjOTE1ZDExYjlmZDU5NzkxMDMwYmZ9IGlzIGVuZ3JhdmVkIG9uIHRoZSBsaWQuDQoNCllvdSBvcGVuIHRoZSBib3gsIGFuZCBmaW5kIGEgcGFyY2htZW50IHdpdGggdGhlIGZvbGxvd2luZyB3cml0dGVuIG9uIGl0LiAiQ2hhbnQgdGhlIHN0cmluZyBvZiBmbGFnMSAtIHU2NjYi...
+
+>>Nota:Que en base64 significa:
+Welcome!
+You find yourself staring towards the horizon, with nothing but silence surrounding you.
+You look east, then south, then west, all you can see is a great wasteland of nothingness.
+Turning to your north you notice a small flicker of light in the distance.
+You walk north towards the flicker of light, only to be stopped by some type of invisible barrier.  
+The air around you begins to get thicker, and your heart begins to beat against your chest. 
+You turn to your left.. then to your right!  You are trapped!
+You fumble through your pockets.. nothing!  
+You look down and see you are standing in sand.  
+Dropping to your knees you begin to dig frantically.
+As you dig you notice the barrier extends underground!  
+Frantically you keep digging and digging until your nails suddenly catch on an object.
+You dig further and discover a small wooden box.  
+flag1{e6078b9b1aac915d11b9fd59791030bf} is engraved on the lid.
+You open the box, and find a parchment with the following written on it. "Chant the string of flag1 - u666"
+
+
+>> Nota: el MD% de este flag: e6078b9b1aac915d11b9fd59791030bf = opensesame
+>> Nota: Envío de un mensaje a un puerto: 
+
+a@b:~# nc -u 192.168.18.128 666
+opensesame
+
+A loud crack of thunder sounds as you are knocked to your feet!
+Dazed, you start to feel fresh air entering your lungs.
+You are free!
+In front of you written in the sand are the words:
+flag2{c39cd4df8f2e35d20d92c2e44de5f7c6}
+As you stand to your feet you notice that you can no longer see the flicker of light in the distance.
+You turn frantically looking in all directions until suddenly, a murder of crows appear on the horizon.
+As they get closer you can see one of the crows is grasping on to an object. As the sun hits the object, shards of light beam from its surface.
+The birds get closer, and closer, and closer.
+Staring up at the crows you can see they are in a formation.
+Squinting your eyes from the light coming from the object, you can see the formation looks like the numeral 80.
+As quickly as the birds appeared, they have left you once again.... alone... tortured by the deafening sound of silence.
+666 is closed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
