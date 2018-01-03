@@ -86,7 +86,7 @@ flag1{e6078b9b1aac915d11b9fd59791030bf} is engraved on the lid.
 You open the box, and find a parchment with the following written on it. "Chant the string of flag1 - u666"
 
 
->> Nota: el MD% de este flag: e6078b9b1aac915d11b9fd59791030bf = opensesame
+>> Nota: el MD5 de este flag: e6078b9b1aac915d11b9fd59791030bf = opensesame
 >> Nota: Envío de un mensaje al puerto 666
 
 a@b:~# nc -u 192.168.18.128 666
@@ -165,7 +165,7 @@ Se deja en minusculas y como resultado thing.txt
 
 >> Nota: FUZZ otra vez contra la web, coge el fichero, descarta los 404 contra la web
 
-a@b:~# wfuzz -c -z file,thing.txt — hc 404 http://192.168.56.102
+a@b:~# wfuzz -c -z file,thing.txt — hc 404 http://192.168.56.102 /amagicbridgeappearsatthechasm/FUZZ
 
 00692: C=200 9 L 109 W 9676 Ch “talisman”
 
@@ -244,7 +244,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 ############## RECOPILATORIO DE MIERDA ##############
 
-FILE RESEARCH
+$ FILE RESEARCH $
 
 GDB:
 
@@ -260,15 +260,37 @@ a@b:~# strings [BINARIO] {Muestra cadenas del binario con una longitud minima de
 
 BINWALK
 
-a@b:~# binwalk -B [FICEHRO] {Información sobre el fichero, cabeceras y esas cosas}
+a@b:~# binwalk -B [FICHERO] {Información sobre el fichero, cabeceras y esas cosas}
+
+FILE
+
+a@b:~# file [FICHERO] {Información arquitectura de fichero}
+
+$ FUZZING WEB $
+
+a@b:~# wfuzz -c -z file,[DICCIONARIO.TXT] — hc 404 [URL] [/DIRECTORIO/]FUZZ {Fuzzea sustituyendo la palabra FUZZ de la URL destino con el diccionario proporcionado, quitando las respuesta 404}
+
+
+$ NETWORKING $
+
+NETCAT:
+
+a@b:~# nc -u [IP] [PORT] {Envio de mensaje a la direccion seleccionada por UDP}
+a@b:~# nc -lvp [PORT] {Escucha en puerto indicado TCP}
 
 
 
-FUZZING WEB
-NETWORKING
-DECRYPT
+$ DECRYPT $
 
+a@b:~# echo "CADENA BASE64"|Base64 --decode {Decodeado de base 64}
+a@b:~# hashcat -m 0 -a 0 [HASHES] [DICCIONARIO (Rockyou)] {Uso de hashcar para descifrar MD5}
+a@b:~# findmyhash MD5 -h [MD5] {Es online}
 
+$ STEGO $
 
+a@b:~# foremost [IMAGEN.JPG] {Analiza y extrae un zip de una imagen}
 
+$ OVERFLOW $
+
+a@b:~# python -c 'print "A"*32' | [./BINARIO] {Imprime 32 veces el caracter A y se lo pasa al binario}
 
