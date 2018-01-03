@@ -206,14 +206,13 @@ podemos sobreescribir ese puntero para que apunte a donde nosotros queramos: 0x0
 que importa: 08048a37, se traduce a little endian addressing: Este formato es adoptado por la mayoría de procesadores Intel. Al 
 igual que existen lenguajes donde la lectura y escritura puede ser izquierda-derecha o derecha-izquierda también en el mundo de 
 los ordenadores puede suceder algo parecido. por lo que lo traducimos con una herramienta online:
-
 https://www.scadacore.com/tools/programming-calculators/online-hex-converter/
-
 y nos da algo tal que así: \x37\x8a\x04\x08, eso es igual a 08048a37, pintamos 32 A y \x37\x8a\x04\x08, y nos pega el salto
+a la parte que indicamos.
 
 
 
-(gdb) r 
+a@b:~#(gdb) r 
 Starting program: /root/necromancer/talisman 
 You have found a talisman.
 
@@ -226,6 +225,48 @@ Nothing happens.
 Program received signal SIGSEGV, Segmentation fault.
 0x41414141 in ?? ()
 (gdb)
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+You fall to your knees.. weak and weary.
+Looking up you can see the spell is still protecting the cave entrance.
+The talisman is now almost too hot to touch!
+Turning it over you see words now etched into the surface:
+flag4{ea50536158db50247e110a6c89fcf3d3} >>>>>>>>>blackmagic MD5 a@b:~# python findmyhash.py MD5 -h "ea50536158db50247e110a6c89fcf3d3"
+Chant these words at u31337
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Program received signal SIGSEGV, Segmentation fault.
+0xf7fb3300 in ?? () from /lib/i386-linux-gnu/libc.so.6
+
+
+
+
+############## RECOPILATORIO DE MIERDA ##############
+
+FILE RESEARCH
+
+GDB:
+
+a@b:~# gdb BINARIO
+(gdb) info functions {Muestra todas las funciones del binario}
+(gdb) run {Ejecuta el binario}
+(gdb) break [NOMBRE FUNCION] {Planta un punto de ruptura en la función indicada}
+(gdb) jump [NOMBRE FUNCION] {Salta a la función indicada}
+
+STRINGS
+
+a@b:~# strings [BINARIO] {Muestra cadenas del binario con una longitud minima de 4 caracteres}
+
+BINWALK
+
+a@b:~# binwalk -B [FICEHRO] {Información sobre el fichero, cabeceras y esas cosas}
+
+
+
+FUZZING WEB
+NETWORKING
+DECRYPT
 
 
 
