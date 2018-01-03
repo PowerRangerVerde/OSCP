@@ -269,7 +269,7 @@ a@b:~# file [FICHERO] {Información arquitectura de fichero}
 $ FUZZING WEB $
 
 a@b:~# wfuzz -c -z file,[DICCIONARIO.TXT] — hc 404 [URL] [/DIRECTORIO/]FUZZ {Fuzzea sustituyendo la palabra FUZZ de la URL destino con el diccionario proporcionado, quitando las respuesta 404}
-
+a@b:~# cewl — depth 0 -m 4 -w [OUTPUT] -v [URL] {Creación de diccionario personalizado basado en una web}
 
 $ NETWORKING $
 
@@ -278,6 +278,17 @@ NETCAT:
 a@b:~# nc -u [IP] [PORT] {Envio de mensaje a la direccion seleccionada por UDP}
 a@b:~# nc -lvp [PORT] {Escucha en puerto indicado TCP}
 
+AIRCRACK:
+
+a@b:~# aircrack-ng [CAP] -w [DICCIONARIO] {reventar claves wifi diccionario /usr/share/wordlists/termineter.txt}
+
+ANALSIS CONTRA SNMP:
+
+a@b:~# msf > use auxiliary/scanner/snmp/snmp_enum
+a@b:~# snmpwalk -c “death2allrw” -v 1 172.16.26.128 {Despliega todos los OIDS SNMP, la version es la 1 y la community es death2allrw (rw lectura y escritua)}
+a@b:~# snmpset -c “death2allrw” -v 1 172.16.26.128 [OID] s ["STRING"] {setador de OIDS}
+
+https://www.linux-party.com/29-internet/6038-introduccion-a-los-comandos-snmp-snmpwalk-snmpget-snmptranslate
 
 
 $ DECRYPT $
@@ -289,8 +300,17 @@ a@b:~# findmyhash MD5 -h [MD5] {Es online}
 $ STEGO $
 
 a@b:~# foremost [IMAGEN.JPG] {Analiza y extrae un zip de una imagen}
+a@b:~# steghide info [IMAGEN.JPG] {Analiza si existe algo dentro de la imagen}
+a@b:~# exiftool [IMAGEN] {es un programa de software con el que podemos acceder y manipular los metadatos}
 
 $ OVERFLOW $
 
 a@b:~# python -c 'print "A"*32' | [./BINARIO] {Imprime 32 veces el caracter A y se lo pasa al binario}
+
+$ DATA COMPRESSION $
+
+a@b:~# bzip2 -dk [bz2] 
+a@b:~# tar -xvf [tar]
+
+
 
