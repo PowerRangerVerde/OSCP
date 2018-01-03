@@ -1,3 +1,4 @@
+>> Nota: Despues de lanzar un escaneo a todo el puerto UDP encuento que el puerto 666 está escupiendo la siguiente info
 a@b:~# nmap -sU -p 666 -sV -O [IP] 
 
 Starting Nmap 7.25BETA1 ( https://nmap.org ) at 2017-12-18 14:22 CET
@@ -54,18 +55,20 @@ V=7.25BETA1%I=7%D=12/18%Time=5A37C146%P=x86_64-pc-linux-gnu
 (Kerberos,27,"You gasp for air! Time is running out!")
 (sybaseanywhere,27,"You gasp for air! Time is running out!");
 
->>Nota: Poner a la escucha con netcat en un puerto:
+>> Nota: No se que hacer con esta información encontrada. A través de wireshark encuentro conexiones entrantes filtrando las peticiones
+tcp
+>> Nota: Poner a la escucha con netcat en el puero 444, esperará a que exista una comunicación.
 
 a@b:~# nc -lvp 4444
 
->>Nota: La máquina al cabo del tiempo consigue captar el siguiente mensaje:
+>> Nota: La máquina al cabo del tiempo consigue captar el siguiente mensaje:
 
 istening on [any] 4444 ...
 192.168.18.128: inverse host lookup failed: Unknown host
 connect to [192.168.18.129] from (UNKNOWN) [192.168.18.128] 24390
 ...V2VsY29tZSENCg0KWW91IGZpbmQgeW91cnNlbGYgc3RhcmluZyB0b3dhcmRzIHRoZSBob3Jpem9uLCB3aXRoIG5vdGhpbmcgYnV0IHNpbGVuY2Ugc3Vycm91bmRpbmcgeW91Lg0KWW91IGxvb2sgZWFzdCwgdGhlbiBzb3V0aCwgdGhlbiB3ZXN0LCBhbGwgeW91IGNhbiBzZWUgaXMgYSBncmVhdCB3YXN0ZWxhbmQgb2Ygbm90aGluZ25lc3MuDQoNClR1cm5pbmcgdG8geW91ciBub3J0aCB5b3Ugbm90aWNlIGEgc21hbGwgZmxpY2tlciBvZiBsaWdodCBpbiB0aGUgZGlzdGFuY2UuDQpZb3Ugd2FsayBub3J0aCB0b3dhcmRzIHRoZSBmbGlja2VyIG9mIGxpZ2h0LCBvbmx5IHRvIGJlIHN0b3BwZWQgYnkgc29tZSB0eXBlIG9mIGludmlzaWJsZSBiYXJyaWVyLiAgDQoNClRoZSBhaXIgYXJvdW5kIHlvdSBiZWdpbnMgdG8gZ2V0IHRoaWNrZXIsIGFuZCB5b3VyIGhlYXJ0IGJlZ2lucyB0byBiZWF0IGFnYWluc3QgeW91ciBjaGVzdC4gDQpZb3UgdHVybiB0byB5b3VyIGxlZnQuLiB0aGVuIHRvIHlvdXIgcmlnaHQhICBZb3UgYXJlIHRyYXBwZWQhDQoNCllvdSBmdW1ibGUgdGhyb3VnaCB5b3VyIHBvY2tldHMuLiBub3RoaW5nISAgDQpZb3UgbG9vayBkb3duIGFuZCBzZWUgeW91IGFyZSBzdGFuZGluZyBpbiBzYW5kLiAgDQpEcm9wcGluZyB0byB5b3VyIGtuZWVzIHlvdSBiZWdpbiB0byBkaWcgZnJhbnRpY2FsbHkuDQoNCkFzIHlvdSBkaWcgeW91IG5vdGljZSB0aGUgYmFycmllciBleHRlbmRzIHVuZGVyZ3JvdW5kISAgDQpGcmFudGljYWxseSB5b3Uga2VlcCBkaWdnaW5nIGFuZCBkaWdnaW5nIHVudGlsIHlvdXIgbmFpbHMgc3VkZGVubHkgY2F0Y2ggb24gYW4gb2JqZWN0Lg0KDQpZb3UgZGlnIGZ1cnRoZXIgYW5kIGRpc2NvdmVyIGEgc21hbGwgd29vZGVuIGJveC4gIA0KZmxhZzF7ZTYwNzhiOWIxYWFjOTE1ZDExYjlmZDU5NzkxMDMwYmZ9IGlzIGVuZ3JhdmVkIG9uIHRoZSBsaWQuDQoNCllvdSBvcGVuIHRoZSBib3gsIGFuZCBmaW5kIGEgcGFyY2htZW50IHdpdGggdGhlIGZvbGxvd2luZyB3cml0dGVuIG9uIGl0LiAiQ2hhbnQgdGhlIHN0cmluZyBvZiBmbGFnMSAtIHU2NjYi...
 
->>Nota:Que en base64 significa:
+>> Nota:Que en base64 significa:
 Welcome!
 You find yourself staring towards the horizon, with nothing but silence surrounding you.
 You look east, then south, then west, all you can see is a great wasteland of nothingness.
@@ -84,7 +87,7 @@ You open the box, and find a parchment with the following written on it. "Chant 
 
 
 >> Nota: el MD% de este flag: e6078b9b1aac915d11b9fd59791030bf = opensesame
->> Nota: Envío de un mensaje a un puerto: 
+>> Nota: Envío de un mensaje al puerto 666
 
 a@b:~# nc -u 192.168.18.128 666
 opensesame
@@ -133,17 +136,21 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 16.32 seconds
 
 
+>> Nota: Visualizar waf en la aplicación web, por si nos sirviera de ayuda.
 
 a@b:~# wafw00f 192.168.18.128
 
 The site http://192.168.18.128 is behind a Imperva SecureSphere
 
-a@b:~# foremost
+>> Nota: Para el análisis de la imagen! Encontrará un zip dentro con un txt y el flag dentro, que nos dará la ruta de la siguiente
+prueba.
+
+a@b:~# foremost [IMAGEN.JPG]
 
 flag3{9ad3f62db7b91c28b68137000394639f} - Cross the chasm at /amagicbridgeappearsatthechasm 345465869
 
 
-
+>> Nota: lanzo dirbuster, no encuentro nada con un diccionario de rutas estandar. 
 
 
 
