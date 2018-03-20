@@ -17,3 +17,6 @@ stty raw -echo
 introducir fg (foreground) para volver a la sesión.
 
 para volver a una sesión especifica:  sessions -i NUMERO_SESION
+
+para upgradear una shell de meterpreter hay que usar el comando "shell".
+
