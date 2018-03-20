@@ -1,0 +1,7 @@
+para escanear todos los puertos con nmap se usa -p-
+
+nmap -v -sV- sC -p- <ip>
+
+-sV: saca las versiones de los servicios encontrados
+-sC: utiliza los scripts por defecto del nmap para enumerar servicios
+-p-: escanea todos los puertos
