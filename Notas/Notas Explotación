@@ -1,0 +1,19 @@
+Shells
+------------------------------------------------------------------
+Upgrade python shell (o tty console)
+python -c 'import pty; pty.spawn("/bin/bash")'  
+
+
+https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/
+
+
+Metasploit
+-------------------------------------------------------------------
+Suggester: multi/recon/local_exploit_suggester
+
+Control + Z para poner la sesión con la shell en background
+
+stty raw -echo
+introducir fg (foreground) para volver a la sesión.
+
+para volver a una sesión especifica:  sessions -i NUMERO_SESION
