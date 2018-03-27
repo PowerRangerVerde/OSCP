@@ -5,3 +5,48 @@ cat fsocity.dic | sort | uniq > fsociety_filtered.txt -> crea un nuevo fichero o
 
 ejecutar un dictionary attack sobre un wordpress:
 wpscan --url http://192.168.1.72 --wordlist=/root/Descargas/fsociety_filtered.txt --username elliot --threads 20
+
+
+
+
+SMBClient
+----------------------------------------------------------------------------
+Sesión nula (lista shares de manera anónima)
+$smbclient -L IP -N
+
+Listar shares autenticado 
+$smbclient -L IP -U 'Domain/user%password'
+
+Conectarse a un share con sesión nula
+$smbclient -N \\\\IP\\C$
+
+Conectarse a un share con credenciales
+$smbclient -U 'Domain/user%password' \\\\IP\\ADMIN$
+
+Conectarse a un share con credenciales en un directorio 
+$smbclient -U 'Domain/user%password' \\\\IP\\C$ -D '\Users\hecky\Desktop’
+
+Conectarse a un share con credenciales en un directorio y descargar todos los archivos
+$smbclient -U 'Domain/user%password' \\\\IP\\C$ -D '\Users\hecky\Desktop’ -c ‘prompt off;recurse on;mget *’
+
+Opciones:
+
+-L   lista shares
+-N   no pide usuario (sesión nula)
+-m   puedes especificar la versión de smb (nt1,smb2,smb3)
+-U  [Dominio/]USUARIO[%password]
+-D   específica un directorio del share
+-c   Comando de smb
+
+
+Tips:
+
+smbclient -N -L IP -> el resultado se conecte o no te da el dominio
+Es super handy para probar contraseñas
+En -U puedes omitir el dominio, si lo haces probara WORGROUP osea en local. Si pones dominio cuidado con la politica de dominio por que puedes bloquear la cuenta. Saca la politica primero 
+En -U puedes omitir la contraseña y la pedira en interactivo
+Smbclient muy handy para conectarse al SYSVOL una vez tienes cuenta de usuario 
+
+
+Comandos utiles de smb:
+ls dir mget get put cd
